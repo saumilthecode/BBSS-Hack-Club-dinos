@@ -52,16 +52,14 @@
             min-width: 120px; 
             height: auto;
             position: absolute;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            opacity: 1; 
+            animation: float-random linear infinite;
         }
 
         @keyframes float-random {
             0% {
                 transform: translate(
-                    calc(var(--start-x) * 1vw), 
-                    calc(var(--start-y) * 1vh)
+                    calc(var(--start-x, 0) * 1vw), 
+                    calc(var(--start-y, 0) * 1vh)
                 );
                 opacity: 1; 
             }
@@ -70,8 +68,8 @@
             }
             100% {
                 transform: translate(
-                    calc(var(--end-x) * 1vw), 
-                    calc(var(--end-y) * 1vh)
+                    calc(var(--end-x, 0) * 1vw), 
+                    calc(var(--end-y, 0) * 1vh)
                 );
                 opacity: 0; 
             }
@@ -99,47 +97,22 @@
             z-index: 10; 
         }
     </style>
-    <script>
-        async function loadImages() {
-            const gallery = document.getElementById('gallery');
-            const response = await fetch('/images'); 
-            const images = await response.json(); 
-
-            gallery.innerHTML = ''; 
-
-            const imageCount = images.length;
-            for (let i = 0; i < 300; i++) {
-                const img = document.createElement('img');
-                const randomImage = images[Math.floor(Math.random() * imageCount)];
-                img.src = `/uploads/${randomImage}`; 
-                img.alt = "Dino Image";
-
-                const startX = Math.random() * 200 - 100; 
-                const startY = Math.random() * 200 - 100; 
-                const endX = Math.random() * 200 - 100; 
-                const endY = Math.random() * 200 - 100; 
-                const duration = Math.random() * 15 + 15; 
-                const delay = Math.random() * 5; 
-
-                img.style.setProperty('--start-x', startX);
-                img.style.setProperty('--start-y', startY);
-                img.style.setProperty('--end-x', endX);
-                img.style.setProperty('--end-y', endY);
-                img.style.animation = `float-random ${duration}s linear ${delay}s infinite`;
-
-                img.style.zIndex = Math.floor(Math.random() * 100);
-
-                gallery.appendChild(img); 
-            }
-        }
-
-        window.onload = loadImages;
-    </script>
 </head>
 <body>
     <h1>Dino Gallery</h1>
     <h2>made by BBSS Hack Club</h2>
-    <div id="gallery"></div>
+    <div id="gallery">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/0drawing.png" style="--start-x: -50; --start-y: -50; --end-x: 50; --end-y: 50; animation-duration: 20s; animation-delay: 1s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/11731924606_nuec6k_drawing.png" style="--start-x: 10; --start-y: -80; --end-x: -30; --end-y: 60; animation-duration: 25s; animation-delay: 2s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/21731925034_ufm25c_drawing.png" style="--start-x: -70; --start-y: 30; --end-x: 80; --end-y: -50; animation-duration: 18s; animation-delay: 3s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/31731925824_3irbgg_drawing.png" style="--start-x: 0; --start-y: -100; --end-x: 100; --end-y: 0; animation-duration: 22s; animation-delay: 0.5s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/41731926286_ar7ng4_drawing.png" style="--start-x: -90; --start-y: -40; --end-x: 40; --end-y: 90; animation-duration: 15s; animation-delay: 4s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/51731928227_tnb1ms_drawing.png" style="--start-x: 50; --start-y: -50; --end-x: -50; --end-y: 50; animation-duration: 24s; animation-delay: 2s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/61731937767_rktozv_drawing.png" style="--start-x: -30; --start-y: -60; --end-x: 60; --end-y: 30; animation-duration: 21s; animation-delay: 3s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/71731942066_warcid_drawing.png" style="--start-x: 0; --start-y: 0; --end-x: -60; --end-y: 80; animation-duration: 19s; animation-delay: 1.5s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/81731942076_cmea0q_drawing.png" style="--start-x: 20; --start-y: -40; --end-x: -20; --end-y: 40; animation-duration: 26s; animation-delay: 2s;">
+        <img src="https://cloud-fx64s5g4f-hack-club-bot.vercel.app/91731942084_36evpl_drawing.png" style="--start-x: -40; --start-y: 20; --end-x: 40; --end-y: -20; animation-duration: 23s; animation-delay: 4s;">
+    </div>
     <!-- Static overlay logo -->
     <img id="logo" src="https://bbsshack.club/logo.webp" alt="Logo">
     <!-- Static overlay QR code -->
