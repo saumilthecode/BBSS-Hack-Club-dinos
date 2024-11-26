@@ -15,6 +15,73 @@ specs:
  ##### yes we ball
 
 
+So from what i understand, to get this running, 
+
+First install everything you need
+
+assuming linux,
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+then 
+```bash
+sudo apt install ngnix
+``` 
+(for ngnix install)
+
+then 
+```bash
+sudo apt install python3
+sudo apt install certbot python3-certbot-nginx
+
+```
+
+then (depending on what the heck you're using, digitalocean made me do this)
+you need to make a virtual env (feel free to skip)
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+then install everything we need,
+
+```bash
+pip install gunicorn #to serve the flask app
+pip install flask #flask!
+```
+
+Now, you're ready to start moving the actual code in
+
+so, start with making adding the ngnix files for both dinodisplay & dino
+
+type in 
+```bash
+sudo mkdir -p /var/www/dino
+sudo nano /var/www/dino/index.html
+```
+and now paste in the code from 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  ## from this part on its chatgpt explaning my code and how to make it run since i would leave a lot of stuff out if i did this
 

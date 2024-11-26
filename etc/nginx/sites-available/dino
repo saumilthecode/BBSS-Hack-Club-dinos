@@ -1,0 +1,28 @@
+server {
+    server_name dino.bbsshack.club;
+
+    root /var/www/dino;
+    index index.html;
+
+    location /upload {
+        proxy_pass http://127.0.0.1:5000/upload;
+        proxy_set_header Host $host;
+    }
+
+    location /uploads/ {
+        alias /root/uploads/;
+    }
+
+}
+server {
+    if ($host = dino.bbsshack.club) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name dino.bbsshack.club;
+    return 404; # managed by Certbot
+
+
+}
