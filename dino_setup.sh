@@ -4,22 +4,28 @@
 echo "please please please remember to set the A records in your domain registar with this server's IP"
 #!/bin/bash
 
+#!/bin/bash
+
 # Prompt user for subdomain + domain inputs
 echo "Enter the domain for the 'dino' site (e.g., dino.example.com):"
-read DINO_DOMAIN
+read -e DINO_DOMAIN < /dev/tty
 
 echo "Enter the domain for the 'dinodisplay' site (e.g., dinodisplay.example.com):"
-read DINODISPLAY_DOMAIN
+read -e DINODISPLAY_DOMAIN < /dev/tty
 
 # Confirm input before proceeding
 echo "You entered:"
 echo "- Dino domain: $DINO_DOMAIN"
 echo "- Dinodisplay domain: $DINODISPLAY_DOMAIN"
-read -p "Is this correct? (y/n): " CONFIRM
+read -e -p "Is this correct? (y/n): " CONFIRM < /dev/tty
 if [[ "$CONFIRM" != "y" ]]; then
     echo "Aborting setup. Please run the script again and provide correct inputs."
     exit 1
 fi
+
+# Proceed with setup
+echo "Setting up configurations for $DINO_DOMAIN and $DINODISPLAY_DOMAIN..."
+# Add the rest of your setup commands here
 
 # Update and upgrade system
 echo "Updating system..."
