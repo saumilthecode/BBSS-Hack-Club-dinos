@@ -17,7 +17,7 @@ specs:
 
  ##### yes we ball
 
-(i belive that you can run the following script (untested your milage may vary)) 
+(i belive that you can run the following scriptto automate it on a digital ocean machine (pi's have networking issues in my exp) (tested, your milage may vary)
 run 
 ```bash
 curl https://raw.githubusercontent.com/saumilthecode/dino-s-/refs/heads/main/dino_setup.sh | bash
