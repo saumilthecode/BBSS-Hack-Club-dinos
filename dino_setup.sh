@@ -3,8 +3,6 @@
 # Prompt user for subdomain + domain inputs
 echo "please please please remember to set the A records in your domain registar with this server's IP"
 #!/bin/bash
-
-#!/bin/bash
 #!/bin/bash
 
 # Function to prompt for user input
@@ -33,6 +31,9 @@ fi
 
 # Proceed with setup
 echo "Setting up configurations for $DINO_DOMAIN and $DINODISPLAY_DOMAIN..." > /dev/tty
+
+# Example setup commands
+echo "Configurations done! This is where you'd add your deployment logic." > /dev/tty
 
 # Update and upgrade system
 echo "Updating system..."
