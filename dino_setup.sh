@@ -5,27 +5,34 @@ echo "please please please remember to set the A records in your domain registar
 #!/bin/bash
 
 #!/bin/bash
+#!/bin/bash
+
+# Function to prompt for user input
+prompt_for_input() {
+    local prompt_message="$1"
+    local user_input
+    echo "$prompt_message" > /dev/tty
+    read -e user_input < /dev/tty
+    echo "$user_input"
+}
 
 # Prompt user for subdomain + domain inputs
-echo "Enter the domain for the 'dino' site (e.g., dino.example.com):"
-read -e DINO_DOMAIN < /dev/tty
-
-echo "Enter the domain for the 'dinodisplay' site (e.g., dinodisplay.example.com):"
-read -e DINODISPLAY_DOMAIN < /dev/tty
+DINO_DOMAIN=$(prompt_for_input "Enter the domain for the 'dino' site (e.g., dino.example.com):")
+DINODISPLAY_DOMAIN=$(prompt_for_input "Enter the domain for the 'dinodisplay' site (e.g., dinodisplay.example.com):")
 
 # Confirm input before proceeding
-echo "You entered:"
-echo "- Dino domain: $DINO_DOMAIN"
-echo "- Dinodisplay domain: $DINODISPLAY_DOMAIN"
-read -e -p "Is this correct? (y/n): " CONFIRM < /dev/tty
+echo "You entered:" > /dev/tty
+echo "- Dino domain: $DINO_DOMAIN" > /dev/tty
+echo "- Dinodisplay domain: $DINODISPLAY_DOMAIN" > /dev/tty
+CONFIRM=$(prompt_for_input "Is this correct? (y/n):")
+
 if [[ "$CONFIRM" != "y" ]]; then
-    echo "Aborting setup. Please run the script again and provide correct inputs."
+    echo "Aborting setup. Please run the script again and provide correct inputs." > /dev/tty
     exit 1
 fi
 
 # Proceed with setup
-echo "Setting up configurations for $DINO_DOMAIN and $DINODISPLAY_DOMAIN..."
-# Add the rest of your setup commands here
+echo "Setting up configurations for $DINO_DOMAIN and $DINODISPLAY_DOMAIN..." > /dev/tty
 
 # Update and upgrade system
 echo "Updating system..."
