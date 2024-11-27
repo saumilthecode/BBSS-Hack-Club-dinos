@@ -145,7 +145,7 @@ gunicorn gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
 and tada! it should all just work now
 
-So in summary, you should have two domains, dino.xxx and dinodisplay.xxx for users to interact with as well as a special admin server at [ip]:5000
+So in summary, you should have two domains, dino.xxx and dinodisplay.xxx for users to interact with as well as a special admin server at [ip]:5000/admin
 
 Hope this helps any other club :D
 
