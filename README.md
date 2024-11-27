@@ -165,7 +165,6 @@ Hope this helps any other club :D
 
 
 
- ## from this part on its chatgpt explaning my code and how to make it run since i would leave a lot of stuff out if i did this
 
 
 # Dino Gallery
