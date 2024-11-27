@@ -132,8 +132,11 @@ echo "Starting and enabling Gunicorn service..."
 sudo systemctl start dino_app
 sudo systemctl enable dino_app
 
+SERVER_IP=$(hostname -I | awk '{print $1}')
+
+
 # Final message
 echo "Setup complete! Dino and Dinodisplay should be live:"
 echo "- $DINO_DOMAIN"
 echo "- $DINODISPLAY_DOMAIN"
-echo "Admin panel available at [your server's IP]:5000"
+echo "Admin panel available at $SERVER_IP:5000"
