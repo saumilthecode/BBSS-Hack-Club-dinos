@@ -178,7 +178,7 @@ The Dino Gallery is a fun, dynamic gallery website where users can upload and vi
 - HTML
 - CSS (for styling and animations)
 - JavaScript (for handling drawing, image animations, and interactivity)
-- Node.js (or similar backend) for handling image uploads and serving the gallery
+- Flask for handling image uploads and serving the gallery
 
 ## Features Breakdown
 - **Gallery**: The images are fetched from a backend and displayed in an ever-moving, randomized animation. New images can be added periodically.
@@ -188,9 +188,17 @@ The Dino Gallery is a fun, dynamic gallery website where users can upload and vi
 
 ## Setup Instructions
 
-### 1. Clone the Repository
-Clone the repository to your local machine or server:
-```bash
-git clone https://github.com/yourusername/dino-gallery.git
-cd dino-gallery
+### 1. Set A records in your domain registar that point to your server IP
+this part is important or else the sits would not show up + setup script will break halfway through
 
+### 2. run the sh setup script
+
+```bash
+curl https://raw.githubusercontent.com/saumilthecode/dino-s-/refs/heads/main/dino_setup.sh | bash
+```
+
+### 3. Profit?!?!?!
+it should work now just that you need to tweek the /var/www/dinodisplay to not be affiliated to BBSS Hack Club + swap out qr code!
+
+# license 
+Free to use but do lmk at saumil@bbsshack.club so i can flex on others :D
