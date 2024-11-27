@@ -4,6 +4,7 @@
 echo "please please please remember to set the A records in your domain registar with this server's IP"
 #!/bin/bash
 #!/bin/bash
+#!/bin/bash
 
 # Function to prompt for user input
 prompt_for_input() {
@@ -18,10 +19,14 @@ prompt_for_input() {
 DINO_DOMAIN=$(prompt_for_input "Enter the domain for the 'dino' site (e.g., dino.example.com):")
 DINODISPLAY_DOMAIN=$(prompt_for_input "Enter the domain for the 'dinodisplay' site (e.g., dinodisplay.example.com):")
 
+# Prompt user for email address (for Certbot)
+EMAIL=$(prompt_for_input "Enter your email address (used for urgent renewal and security notices):")
+
 # Confirm input before proceeding
 echo "You entered:" > /dev/tty
 echo "- Dino domain: $DINO_DOMAIN" > /dev/tty
 echo "- Dinodisplay domain: $DINODISPLAY_DOMAIN" > /dev/tty
+echo "- Email: $EMAIL" > /dev/tty
 CONFIRM=$(prompt_for_input "Is this correct? (y/n):")
 
 if [[ "$CONFIRM" != "y" ]]; then
@@ -31,9 +36,6 @@ fi
 
 # Proceed with setup
 echo "Setting up configurations for $DINO_DOMAIN and $DINODISPLAY_DOMAIN..." > /dev/tty
-
-# Example setup commands
-echo "Configurations done! This is where you'd add your deployment logic." > /dev/tty
 
 # Update and upgrade system
 echo "Updating system..."
@@ -96,9 +98,9 @@ sudo ln -s /etc/nginx/sites-available/dino /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/dinodisplay /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 
-# Obtain SSL certificates
+# Obtain SSL certificates using the email provided
 echo "Obtaining SSL certificates..."
-sudo certbot --nginx -d $DINO_DOMAIN -d $DINODISPLAY_DOMAIN
+sudo certbot --nginx -d $DINO_DOMAIN -d $DINODISPLAY_DOMAIN --email $EMAIL --agree-tos --no-eff-email
 
 # Set up Flask app
 echo "Setting up Flask app..."
