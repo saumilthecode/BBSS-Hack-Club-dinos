@@ -17,6 +17,9 @@ specs:
 
  ##### yes we ball
 
+(i belive that you can run the following script (untested your milage may vary))
+
+run 
 
 So from what i understand, to get this running, 
 
