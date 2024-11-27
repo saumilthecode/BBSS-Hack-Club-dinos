@@ -14,6 +14,10 @@ specs:
 ($18/mo)
 
 (this has been working relably on the $4 a month server with 512mb of ram so scale accordingly)
+afforementioned $4
+512 MB / 1 CPU
+10 GB SSD Disk
+500 GB transfer
 
  ##### yes we ball
 
