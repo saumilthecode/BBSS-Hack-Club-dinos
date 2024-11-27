@@ -1,6 +1,6 @@
 # draw a dino
 
-Currently deployed at https://dinodisplay.bbsshack.club/ and https://dino.bbsshack.club/ scheduled to be taken down to save costs by the end of November
+Currently deployed at https://dinodisplay.bbsshack.club/ and https://dino.bbsshack.club/ scheduled to be taken down to save costs by the end of december
 
 
 hosted on a digital ocean droplet
