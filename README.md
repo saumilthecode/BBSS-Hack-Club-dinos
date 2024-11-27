@@ -12,10 +12,18 @@ specs:
 2 vCPUs
 2GB / 60GB Disk
 ($18/mo)
+
+(this has been working relably on the $4 a month server with 512mb of ram so scale accordingly)
+
  ##### yes we ball
 
 
 So from what i understand, to get this running, 
+
+Quick note about all "nano" refrences here, to save your nano file, press 
+1.control + o then 
+2.enter then control + 
+3. x to exit
 
 First install everything you need
 
@@ -61,11 +69,76 @@ type in
 sudo mkdir -p /var/www/dino
 sudo nano /var/www/dino/index.html
 ```
-and now paste in the code from 
+and now paste in the code from this [index.html](https://github.com/saumilthecode/dino-s-/blob/main/var/www/dino/index.html)
+
+now do ditto for dinodisplay
+
+```bash
+sudo mkdir -p /var/www/dinodisplay
+sudo nano /var/www/dinodisplay/index.html
+```
+and paste from this [index.html](https://github.com/saumilthecode/dino-s-/blob/main/var/www/dinodisplay/index.html)
 
 
+now we reload ngnix to recognise these new sites as well as create systemlinks so it knows to serve them
 
+```bash
+sudo ln -s /etc/nginx/sites-available/dino /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/dinodisplay /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
 
+and now that shouldve executed with no errors at all. If it errored then recheck the files and path and try consulting anyone for help
+
+now, we issue the SSL certs for the website so ngnix can seve it witout the pesky insecure connection
+
+```bash
+sudo certbot --nginx -d dino.bbsshack.club -d dinodisplay.bbsshack.club
+```
+## Before doing this, head into porkbun(or whatever you use)and set a "A" record with the server IP in the "answer" 
+(i really have no clue how this pans out if you want to use any other domain then dino & dinodisplay so GL tinkering around)
+
+Now that you have your website set up you need to get the Flask server setup to serve the images + recieve the images as a sort of API
+
+go on and `cd` into your main path
+
+and now type in 
+```bash
+mkdir -p /root/dino_app
+cd /root/dino_app
+```
+
+This will make a dino_app folder in your main path 
+
+Now, we add in the .py that handles it all 
+
+Since you're already in the dino_app folder,
+
+run `nano app.py`
+
+and paste in everything from [here](https://github.com/saumilthecode/dino-s-/blob/main/dino_app/app.py)
+
+Now, you need to make the admin templates so that you can actually remove pictures you really dont want up.
+
+For that, run `nano /root/dino_app/templates/admin.html` and paste in everything from [here](https://github.com/saumilthecode/dino-s-/blob/main/dino_app/templates/admin.html)
+then one more for index.html (i have no clue what the diff is but if it works it works)
+
+`nano /root/dino_app/templates/index.html` and paste in [this](https://github.com/saumilthecode/dino-s-/blob/main/dino_app/templates/index.html)
+
+and now you should be clear start running your app!
+
+so run,
+```bash
+cd root/dino_app
+gunicorn gunicorn -w 4 -b 0.0.0.0:5000 app:app
+```
+
+and tada! it should all just work now
+
+So in summary, you should have two domains, dino.xxx and dinodisplay.xxx for users to interact with as well as a special admin server at [ip]:5000
+
+Hope this helps any other club :D
 
 
 
