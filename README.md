@@ -17,9 +17,11 @@ specs:
 
  ##### yes we ball
 
-(i belive that you can run the following script (untested your milage may vary))
-
+(i belive that you can run the following script (untested your milage may vary)) 
 run 
+```bash
+curl https://raw.githubusercontent.com/saumilthecode/dino-s-/refs/heads/main/dino_setup.sh | bash
+```
 
 So from what i understand, to get this running, 
 
