@@ -22,6 +22,8 @@ afforementioned $4
  ##### yes we ball
 
 (i belive that you can run the following scriptto automate it on a digital ocean machine (pi's have networking issues in my exp) (tested, your milage may vary)
+
+## edit, this seems to be broken for any other domains then bbsshack.club so a bit of tinkering is in the way. Expect 1h of tinkering
 run 
 ```bash
 curl https://raw.githubusercontent.com/saumilthecode/dino-s-/refs/heads/main/dino_setup.sh | bash
