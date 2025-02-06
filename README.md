@@ -142,7 +142,7 @@ and now you should be clear start running your app!
 so run,
 ```bash
 cd root/dino_app
-gunicorn gunicorn -w 4 -b 0.0.0.0:5000 app:app
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 
 and tada! it should all just work now
