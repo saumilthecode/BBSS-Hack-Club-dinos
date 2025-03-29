@@ -61,6 +61,7 @@ then (depending on what the heck you're using, digitalocean made me do this)
 you need to make a virtual env (feel free to skip)
 
 ```bash
+sudo apt install python3.12-venv
 python3 -m venv venv
 source venv/bin/activate
 ```
