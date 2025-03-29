@@ -46,7 +46,7 @@ sudo apt update && sudo apt upgrade
 
 then 
 ```bash
-sudo apt install ngnix
+sudo apt install nginx
 ``` 
 (for ngnix install)
 
