@@ -1,9 +1,10 @@
 # draw a dino
 
-~~ Currently deployed at https://dinodisplay.bbsshack.club/ and https://dino.bbsshack.club/ scheduled to be taken down to save costs by the end of december ~~
+~~Currently deployed~~ at https://dinodisplay.bbsshack.club/ and https://dino.bbsshack.club/, scheduled to be taken down to save costs by the end of December.
 
 # proof this works
-![Bikegofly Image](https://saumilthecode.github.io/bikegofly/ohold%20Small.jpeg)
+![Bikegofly Image](https://github.com/saumilthecode/BBSS-Hack-Club-dinos/blob/main/ohold.png?raw=true)
+
 
 hosted on a digital ocean droplet
 (they're kinda abit weird to deploy on since they rejected our HCB card at first and took 5 emails to verify me)
